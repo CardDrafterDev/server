@@ -1,3 +1,5 @@
+# collecting all routers into ones
+
 from fastapi import APIRouter
 from .inventoryRouter import inventory_router
 from .collectionRouter import collection_router

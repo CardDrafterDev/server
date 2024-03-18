@@ -10,3 +10,4 @@ class Card(BaseModel):
 class User(BaseModel):
     tg_id: str
     cards: list[str]
+    

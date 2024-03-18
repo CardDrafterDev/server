@@ -7,6 +7,3 @@ import app.models.models as models
 app = FastAPI()
 
 app.include_router(Router.Router)
-
-
-
