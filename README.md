@@ -19,13 +19,16 @@ uvicorn main:app --reload
 OR
 
 ```
-python -m uvicorn main:app --reload
+make uvi-local
 ```
 
 
 
 ## Things to implement later in development
 
-- [ ] Testing w/ Postman
+- [ ] Testing w/ Postman or Starlette
 - [ ] Migrating to Golang instead of Python
 - [ ] ???
+
+
+## Python version - 3.12
