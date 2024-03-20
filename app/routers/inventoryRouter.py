@@ -7,7 +7,7 @@ inventory_router = APIRouter()
 
 
 @inventory_router.get("/inventory/get/{user_id}")
-async def get_user_inventory(user_id: int):
+async def get_user_inventory(user_id):
     try:
         user_id = int(user_id)
     except ValueError:

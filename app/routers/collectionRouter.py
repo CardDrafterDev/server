@@ -8,7 +8,7 @@ collection_router = APIRouter()
 
 
 @collection_router.get("/collection/get/{user_id}")
-def get_collection_by_id(user_id: int):
+def get_collection_by_id(user_id):
     if not user_id:
         error.handle_http_err(404, "User ID does not exist")
 
