@@ -18,4 +18,4 @@ async def get_user_inventory(user_id: int):
         return user_inventory
     
     else:
-        error.handle_http_err(400, "User inventory not found")
+        error.handle_http_err(404, "User inventory not found")

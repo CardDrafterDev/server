@@ -22,5 +22,5 @@ def get_collection_by_id(user_id: int):
         return user_collection
     
     else:
-        error.handle_http_err(400, "User collection not found")
+        error.handle_http_err(404, "User collection not found")
 
