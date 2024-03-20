@@ -9,7 +9,7 @@ class Logger:
         level = logging.DEBUG if env_variables["DEBUG"] else logging.WARNING
         logging_path = env_variables["LOG_PATH"]
         self.logger = logging.getLogger(__name__)
-        formatter = logging.Formatter('%(levelname)s:%(asctime)s : %(name)s : %(message)s')
+        formatter = logging.Formatter('%(levelname)s:%(asctime)s : %(name)s : %(message)s', "%Y-%m-%d %H:%M:%S")
         file_handler = logging.FileHandler(f'logs/{__name__}.log')
 
         self.logger.setLevel(level)
