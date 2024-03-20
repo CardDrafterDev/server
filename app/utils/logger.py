@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
-from make_env import get_env
+from .make_env import get_env
 
 class Logger:
     def __init__(self):
@@ -10,7 +10,7 @@ class Logger:
         logging_path = env_variables["LOG_PATH"]
         self.logger = logging.getLogger(__name__)
         formatter = logging.Formatter('%(levelname)s:%(asctime)s : %(name)s : %(message)s')
-        file_handler = logging.FileHandler(f'{logging_path}/{__name__}.log')
+        file_handler = logging.FileHandler(f'logs/{__name__}.log')
 
         self.logger.setLevel(level)
 
