@@ -31,4 +31,7 @@ make uvi-local
 - [ ] ???
 
 
+## For logging add /logs directory in /server
+
+
 ## Python version - 3.12
