@@ -7,8 +7,8 @@ import app.database.database as db
 collection_router = APIRouter()
 
 
-@collection_router.get("/collection/get/{user_id}")
-def get_collection_by_id(user_id):
+@collection_router.get("/collection/get")
+def get_collection_by_id(user_id: int):
     if not user_id:
         error.handle_http_err(file_name=__name__, status=404, msg="User ID does not exist")
 
