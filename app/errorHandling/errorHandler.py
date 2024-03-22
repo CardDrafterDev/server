@@ -2,10 +2,11 @@ from fastapi import HTTPException
 from app.utils.logger import Logger
 
 
-Logger = Logger()
 
-def handle_http_err(status: int, msg : str | None = None):
-    Logger.log_err(
+
+def handle_http_err(file_name: str , status: int, msg : str | None = None):
+    logger = Logger(file_name)
+    logger.log_err(
         err=HTTPException(
             status_code=status, 
             detail=msg)         

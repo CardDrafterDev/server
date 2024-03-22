@@ -4,13 +4,14 @@ import logging
 from .make_env import get_env
 
 class Logger:
-    def __init__(self):
+    def __init__(self, fileName=__name__):
         env_variables = get_env()
         level = logging.DEBUG if env_variables["DEBUG"] else logging.WARNING
         logging_path = env_variables["LOG_PATH"]
         self.logger = logging.getLogger(__name__)
-        formatter = logging.Formatter('%(levelname)s:%(asctime)s : %(name)s : %(message)s', "%Y-%m-%d %H:%M:%S")
-        file_handler = logging.FileHandler(f'logs/{__name__}.log')
+        self.fileName = fileName
+        formatter = logging.Formatter(f'%(levelname)s:%(asctime)s : {self.fileName} : %(message)s', "%Y-%m-%d %H:%M:%S")
+        file_handler = logging.FileHandler(f'logs/{fileName}.log')
 
         self.logger.setLevel(level)
 
