@@ -27,6 +27,7 @@ make uvi-local
 ## Things to implement later in development
 
 - [x] Testing w/ Postman or Starlette
+- [ ] Migrating to Django (?)
 - [ ] Migrating to Golang instead of Python
 - [ ] ???
 
