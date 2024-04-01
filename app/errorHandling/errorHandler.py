@@ -13,5 +13,3 @@ def handle_http_err(file_name: str , status: int, msg : str | None = None):
             )   
     
     raise HTTPException(status_code=status, detail=msg)
-
-

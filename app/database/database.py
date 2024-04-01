@@ -12,4 +12,4 @@ def get_user_collection(user_id: int) -> list[str]:
         3: ["c_003", "c_005", "c_016"]
     }
 
-    return inventories.get(user_id, None)
+    return inventories.get(user_id, None) 

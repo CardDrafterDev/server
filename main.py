@@ -1,6 +1,5 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 import app.routers.initRouter as Router
-import app.models.models as models 
 
 
 
