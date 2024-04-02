@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 import app.errorHandling.errorHandler as error
 import app.database.database as db
 
