@@ -45,7 +45,7 @@ def put_user_collection(user_id: int, new_collection: list[str]) -> None:
 
 
     with conn.cursor as curs:
-        curs.execute()
+        curs.execute("")
 
 
 
