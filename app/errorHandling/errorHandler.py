@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from utils.logger import Logger
+from app.utils.logger import Logger
 
 
 def handle_http_err(file_name: str , status: int, msg: str | None = None):

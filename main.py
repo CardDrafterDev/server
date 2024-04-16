@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.include_router(Router.Router)
 
-app.add_middleware(
-    CORSMiddleware,
-    *middleware
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     *middleware
+# )
