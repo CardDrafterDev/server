@@ -35,6 +35,8 @@ def get_user_data(user_id: int) -> dict[str, list[str | None]]:
                     "inventory": data.inventory
                 }
                 return data_dict
+            
+            
             return None
     
         except Exception as e:
@@ -54,7 +56,7 @@ def update_user_inventory(user_id: int, inventory: list[str]) -> None:
             s.commit()
         except Exception as e:
             db_handler.handle_misc(msg=f"Could not update inventory at table {env['TABLE_NAME']}: {e}", e=e)
-
+            raise e
 
 
 def update_user_collection(user_id: int, collection: list[str]) -> None:
