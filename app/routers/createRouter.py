@@ -1,14 +1,19 @@
 from fastapi import APIRouter
+from fastapi import Response, status
+
+
 import app.errorHandling.errorHandler as error
 import app.database.database as db
 
 
+http_handler = error.HttpErrorHandler(__name__)
+db_handler = error.DBErrorHandler(__name__)
 
-collection_router = APIRouter()
+create_router = APIRouter()
 
 
-@collection_router.get("/collection/get")
-def get_collection_by_id(user_id: int) -> list[str]:
+@create_router.post("/create_user")
+def create_user(user_id: int, response: Response) -> None:
     if not user_id:
         error.handle_http_err(file_name=__name__, status=404, msg="User ID does not exist")
 
@@ -17,10 +22,7 @@ def get_collection_by_id(user_id: int) -> list[str]:
     except ValueError:
         error.handle_http_err(file_name=__name__, status=400, msg="User ID is not an integer")
         
-    user_collection = db.get_user_collection(user_id)
-    if user_collection:
-        return user_collection
-    
-    else:
-        error.handle_http_err(file_name=__name__, status=404, msg="User collection not found")
 
+    db.create_user(user_id)
+    response.status_code = status.HTTP_201_CREATED
+    
