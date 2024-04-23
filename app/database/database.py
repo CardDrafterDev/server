@@ -29,7 +29,7 @@ def _db_create_session():
 db_handler = error.DBErrorHandler(__name__)
 
 
-def get_user_data(user_id: int) -> dict[str, list[str | None]]:
+def get_user_data(user_id: int) -> models.User:
     with _db_create_session() as s:
     
         try:
@@ -98,5 +98,5 @@ def create_user(user_id: int) -> None:
             s.commit()
         except Exception as e:
             if get_user_data(user_id):
-                db_handler.handle_already_exists(f"User already exists {env['TABLE_NAME']}: {e}")
+                db_handler.handle_already_exists(f"User already exists at {env['TABLE_NAME']}")
             

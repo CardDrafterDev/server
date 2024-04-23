@@ -22,6 +22,13 @@ OR
 make uvi-local
 ```
 
+### Redis
+```
+docker run --rm --name some-redis -p 6379:6379 redis:latest
+```
+Use this ^ to run redis locally
+For this use case the redis url will be - redis://localhost:6379
+
 
 
 ## Things to implement later in development
