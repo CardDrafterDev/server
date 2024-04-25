@@ -1,9 +1,10 @@
+import app.database.database as db
+import app.errorHandling.errorHandler as error
+
+
 from fastapi import APIRouter
 from fastapi import Response, status
 
-
-import app.errorHandling.errorHandler as error
-import app.database.database as db
 
 
 http_handler = error.HttpErrorHandler(__name__)

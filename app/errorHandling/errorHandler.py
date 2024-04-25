@@ -1,6 +1,6 @@
-from fastapi import HTTPException
 from app.utils.logger import Logger
 
+from fastapi import HTTPException
     
 
 class ErrorHandler:

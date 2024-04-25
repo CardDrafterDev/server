@@ -14,7 +14,7 @@ uvi-local:
 req-make:
 	$(PYTHON) -m pipreqs.pipreqs ./ --force
 
-req-install:
+req:
 	pip install -r requirements.txt
 	pip install uvicorn==0.15.0
 

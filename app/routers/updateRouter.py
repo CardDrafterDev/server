@@ -1,7 +1,8 @@
 import app.database.database as db
+from app.errorHandling.errorHandler import DBErrorHandler
 
 from . import dataModels as models
-from app.errorHandling.errorHandler import DBErrorHandler
+
 
 from fastapi import APIRouter
 from fastapi import status, Response

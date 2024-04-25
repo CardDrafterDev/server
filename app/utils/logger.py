@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+from app.utils.make_env import get_env
 
 import logging
-from app.utils.make_env import get_env
 
 class Logger:
     def __init__(self, fileName=__name__):

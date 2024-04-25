@@ -1,6 +1,8 @@
-from fastapi import APIRouter
-import app.errorHandling.errorHandler as error
 import app.database.database as db
+import app.errorHandling.errorHandler as error
+
+
+from fastapi import APIRouter
 
 
 read_router = APIRouter()
