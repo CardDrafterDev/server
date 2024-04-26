@@ -6,11 +6,18 @@ HOST=$(SERVER_HOST)
 
 
 py-local:
-	$(PYTHON) -m uvicorn 'main:app' --reload --host $(HOST) --port $(PORT)
+	$(PYTHON) -m uvicorn 'main:server' --reload --host $(HOST) --port $(PORT)
 
 uvi-local:
-	uvicorn 'main:app' --reload --host $(HOST) --port $(PORT)
+	uvicorn 'main:server' --reload --host $(HOST) --port $(PORT)
+
+req-make:
+	$(PYTHON) -m pipreqs.pipreqs ./ --force
 
 req:
 	pip install -r requirements.txt
+	pip install uvicorn==0.15.0
 
+
+check-redis:
+	(printf "PING\r\n";) | nc $(REDIS_HOST) $(REDIS_PORT)

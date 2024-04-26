@@ -1,10 +1,16 @@
 from app.utils.make_env import get_env
 import app.errorHandling.errorHandler as error
+
+
 from . import models
+
+from sqlalchemy import text
+from sqlalchemy import select
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import text
+
+
 
 env = get_env()
 
@@ -23,7 +29,7 @@ def _db_create_session():
 db_handler = error.DBErrorHandler(__name__)
 
 
-def get_user_data(user_id: int) -> dict[str, list[str | None]]:
+def get_user_data(user_id: int) -> models.User:
     with _db_create_session() as s:
     
         try:
@@ -42,6 +48,16 @@ def get_user_data(user_id: int) -> dict[str, list[str | None]]:
         except Exception as e:
             db_handler.handle_misc(msg=f"Could not get user data at table {env['TABLE_NAME']}: {e}", e=e)
 
+
+def select_all() -> list[models.User]:
+    with _db_create_session() as s:
+        try:
+            statement = select(models.User).order_by(models.User.user_id)
+            data = s.scalars(statement).all()
+            return data
+        except Exception as e:
+            db_handler.handle_misc(msg=f"Could not SELECT * at table {env['TABLE_NAME']}: {e}", e=e)
+            raise e
 
 
 def update_user_inventory(user_id: int, inventory: list[str]) -> None:
@@ -82,5 +98,5 @@ def create_user(user_id: int) -> None:
             s.commit()
         except Exception as e:
             if get_user_data(user_id):
-                db_handler.handle_already_exists(f"User already exists {env['TABLE_NAME']}: {e}")
+                db_handler.handle_already_exists(f"User already exists at {env['TABLE_NAME']}")
             

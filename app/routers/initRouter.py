@@ -1,4 +1,4 @@
-# collecting all routers into ones
+# collecting all routers into one
 
 from fastapi import APIRouter
 from .createRouter import create_router

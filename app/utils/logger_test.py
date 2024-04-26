@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from logger import Logger
+
 from fastapi import HTTPException
 
 Logger = Logger()
