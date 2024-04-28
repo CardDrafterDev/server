@@ -42,4 +42,11 @@ For this use case the redis url will be - redis://localhost:6379
 ## For logging add /logs directory in /server
 
 
+## To make SSL certificate
+
+```
+openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+```
+
+
 ## Python version - 3.12
