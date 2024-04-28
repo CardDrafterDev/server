@@ -9,7 +9,7 @@ py-local:
 	$(PYTHON) -m uvicorn 'main:server' --reload --host $(HOST) --port $(PORT)
 
 uvi-local:
-	uvicorn 'main:server' --reload --host $(HOST) --port $(PORT)
+	uvicorn 'main:server' --reload --host $(HOST) --port $(PORT) --ssl-keyfile key.pem --ssl-certfile cert.pem
 
 req-make:
 	$(PYTHON) -m pipreqs.pipreqs ./ --force
