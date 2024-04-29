@@ -2,32 +2,19 @@
 
 ## Requirements
 
-### To generate requirements.txt use pipreq, e.g.
+### To generate requirements.txt use
 ```
-pip install pipreq
-python -m pipreqs.pipreqs [path/to/source] --force
+make req-make
 ```
 
 
 ### To run the server use
 
-```
-pip install uvicorn
-uvicorn main:app --reload
-```
-
-OR
 
 ```
 make uvi-local
 ```
 
-### Redis
-```
-docker run --rm --name some-redis -p 6379:6379 redis:latest
-```
-Use this ^ to run redis locally
-For this use case the redis url will be - redis://localhost:6379
 
 
 
