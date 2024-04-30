@@ -12,12 +12,8 @@ from sqlalchemy.orm import sessionmaker
 
 
 
-
-# DATABASE_URI = f"postgresql+psycopg2://{env['DB_USER']}:{env['DB_PASSWORD']}@{env['DB_HOST']}:{env['DB_PORT']}/{env['DB_NAME']}"
 DATABASE_URI=get_var("DB_URI")
 TABLE_NAME=get_var("TABLE_NAME")
-print(TABLE_NAME)
-
 
 
 def _db_create_session():

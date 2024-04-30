@@ -9,6 +9,7 @@ def decrypt_jwt(token: str) -> dict[str, dict[str, any]]:
         key=secret,
         algorithms=["HS256"]
     )
+    
     return decoded_data
 
 
