@@ -161,3 +161,4 @@ cython_debug/
 app/testing.py
 /certs
 *.pem
+test.py

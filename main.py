@@ -1,16 +1,10 @@
-from app.middleware.cors import middleware
-from app.utils.make_env import get_env
 import app.routers.initRouter as Router
 from app.middleware.cors import add_cors
 
 
 from fastapi import FastAPI, status, Request
 
-from fastapi.middleware.cors import CORSMiddleware
-
 from starlette.responses import RedirectResponse
-
-from celery.app import Celery
 
 import ssl
 
@@ -31,7 +25,7 @@ DEFAULT_URL = "/docs"
 
 
 @server.get("/", include_in_schema=False)
-async def reroute_to_default(request: Request):
+async def reroute_to_default():
     return RedirectResponse(url=DEFAULT_URL, status_code=status.HTTP_303_SEE_OTHER)
 
 

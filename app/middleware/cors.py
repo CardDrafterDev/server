@@ -1,12 +1,11 @@
 from fastapi.middleware.cors import CORSMiddleware
-from app.utils.make_env import get_env
+from app.utils.env import get_var
 
 
-env_variables = get_env()
 
 _origins = [
-    f"https://{env_variables['SERVER_HOST']}:{env_variables['SERVER_PORT']}",
-    f"http://{env_variables['SERVER_HOST']}:{env_variables['SERVER_PORT']}",
+    f"https://{get_var('SERVER_HOST')}:{get_var('SERVER_PORT')}",
+    f"http://{get_var('SERVER_HOST')}:{get_var('SERVER_PORT')}",
 
 ]
 
