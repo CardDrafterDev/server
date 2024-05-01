@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-from app.utils.make_env import get_env
+from app.utils.env import get_var
 
 import logging
 
 class Logger:
     def __init__(self, fileName=__name__):
-        env_variables = get_env()
-        level = logging.DEBUG if env_variables["DEBUG"] else logging.WARNING
+        level = logging.DEBUG if get_var("DEBUG") else logging.WARNING
         self.logger = logging.getLogger(__name__)
         self.fileName = fileName
         formatter = logging.Formatter(f'%(levelname)s:%(asctime)s : {self.fileName} : %(message)s', "%Y-%m-%d %H:%M:%S")
