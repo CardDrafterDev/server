@@ -10,13 +10,6 @@ _origins = [
 ]
 
 
-cors_regex = ...
-
-middleware = [
-    _origins,
-
-]
-
 
 def add_cors(app):
     app.add_middleware(

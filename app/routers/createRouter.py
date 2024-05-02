@@ -1,6 +1,8 @@
 import app.database.database as db
 import app.errorHandling.errorHandler as error
 
+import app.routers.dataModels as models 
+
 
 from fastapi import APIRouter
 from fastapi import Response, status
@@ -14,7 +16,8 @@ create_router = APIRouter()
 
 
 @create_router.post("/create_user")
-def create_user(user_id: int, response: Response) -> None:
+async def create_user(user: models.User, response: Response) -> None:
+    user_id = user.user_id
     if not user_id:
         error.handle_http_err(file_name=__name__, status=404, msg="User ID does not exist")
 

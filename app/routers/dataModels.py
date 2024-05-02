@@ -4,3 +4,7 @@ class User(BaseModel):
     user_id: int
     collection: list[str] | None = None
     inventory: list[str] | None = None
+
+
+class Token(BaseModel):
+    token: str
