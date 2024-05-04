@@ -1,7 +1,7 @@
 import app.database.database as db
 import app.errorHandling.errorHandler as error
 
-import models.dataModels as models 
+import app.models.dataModels as models 
 
 
 from fastapi import APIRouter

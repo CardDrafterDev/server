@@ -1,5 +1,5 @@
 from app.utils.env import get_var
-from models import dataModels as models
+from app.models import dataModels as models
 import datetime
 
 from fastapi.exceptions import HTTPException
