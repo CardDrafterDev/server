@@ -5,7 +5,6 @@ from functools import wraps
 
 
 
-
 def protected(func):
     """
     Decorator function that adds authentication to a route.
@@ -31,4 +30,3 @@ def protected(func):
             return await func(request, *args, **kwargs)
         
     return wrapper
- 

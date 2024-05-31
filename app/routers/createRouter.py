@@ -1,6 +1,8 @@
 import app.database.database as db
 import app.errorHandling.errorHandler as error
 
+from app.utils.decorators import protected
+
 import app.models.dataModels as models 
 
 
@@ -16,6 +18,7 @@ create_router = APIRouter()
 
 
 @create_router.post("/create_user")
+@protected
 async def create_user(user: models.User, response: Response) -> None:
     user_id = user.user_id
     if not user_id:
@@ -29,4 +32,3 @@ async def create_user(user: models.User, response: Response) -> None:
 
     db.create_user(user_id)
     response.status_code = status.HTTP_201_CREATED
-    
