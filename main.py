@@ -2,13 +2,11 @@ import app.routers.initRouter as Router
 from app.middleware.cors import add_cors
 
 
-from fastapi import FastAPI, status, Request
+from fastapi import FastAPI, status
 
 from starlette.responses import RedirectResponse
 
 import ssl
-
-
 
 
 server = FastAPI()
@@ -27,7 +25,6 @@ DEFAULT_URL = "/docs"
 @server.get("/", include_in_schema=False)
 async def reroute_to_default():
     return RedirectResponse(url=DEFAULT_URL, status_code=status.HTTP_303_SEE_OTHER)
-
 
 
 # env = get_env()

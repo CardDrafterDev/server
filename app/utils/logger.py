@@ -3,26 +3,26 @@ from app.utils.env import get_var
 
 import logging
 
+
 class Logger:
     def __init__(self, fileName=__name__):
         level = logging.DEBUG if get_var("DEBUG") else logging.WARNING
         self.logger = logging.getLogger(__name__)
         self.fileName = fileName
-        formatter = logging.Formatter(f'%(levelname)s:%(asctime)s : {self.fileName} : %(message)s', "%Y-%m-%d %H:%M:%S")
-        file_handler = logging.FileHandler(f'logs/{fileName}.log')
+        formatter = logging.Formatter(
+            f"%(levelname)s:%(asctime)s : {self.fileName} : %(message)s",
+            "%Y-%m-%d %H:%M:%S",
+        )
+        file_handler = logging.FileHandler(f"logs/{fileName}.log")
 
         self.logger.setLevel(level)
 
         file_handler.setFormatter(formatter)
 
-
-        if (self.logger.hasHandlers()):
+        if self.logger.hasHandlers():
             self.logger.handlers.clear()
 
-
         self.logger.addHandler(file_handler)
-
-
 
     def log_debug(self, debug):
         self.logger.debug(debug)
