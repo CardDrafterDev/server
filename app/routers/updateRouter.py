@@ -9,8 +9,6 @@ from fastapi import APIRouter
 from fastapi import status, Response
 
 
-
-
 update_router = APIRouter()
 dbhandler = DBErrorHandler(__name__)
 
@@ -24,7 +22,6 @@ async def update_user_collection(user: models.User, response: Response):
 
     except Exception as e:
         dbhandler.handle_misc(f"Couldn't update collection: {e}")
-
 
 
 @update_router.put("/update_inventory")

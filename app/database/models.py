@@ -14,4 +14,3 @@ class User(Base):
 
     def __repr__(self):
         return f"<User(user_id='{self.user_id}', collection='{self.collection}', inventory='{self.inventory}')>"
-    

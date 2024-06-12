@@ -23,7 +23,7 @@ async def get_user(user_id: int) -> dict[str, list[str] | int | None]:
 
     if user_data:
         return user_data
-    
+
     else:
         http_handler.handle_http_err(status=404, msg="User data not found")
 

@@ -6,6 +6,7 @@ from fastapi import HTTPException
 
 Logger = Logger()
 
+
 def test_info(info: str):
     Logger.log_info(info)
 
@@ -22,7 +23,6 @@ def test_crit(crit: str):
     Logger.log_critical(crit)
 
 
-
 def test_division(x, y):
     try:
         res = x / y
@@ -31,7 +31,8 @@ def test_division(x, y):
     except Exception as e:
         test_err(e)
 
-def test_http(status : int, msg = None) :
+
+def test_http(status: int, msg=None):
     test_err(HTTPException(status_code=status, detail=msg))
 
 
