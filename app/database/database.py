@@ -1,6 +1,8 @@
 from app.utils.env import get_var
 import app.errorHandling.errorHandler as error
+import socket
 
+addr = socket.gethostbyname('db')
 
 from . import models
 
@@ -11,7 +13,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-DATABASE_URI = get_var("DB_URI")
+DATABASE_URI = f"postgresql://postgres:postgres@{addr}:5432/users_data"
+print(addr)
 TABLE_NAME = get_var("TABLE_NAME")
 
 

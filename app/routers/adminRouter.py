@@ -2,7 +2,7 @@ import app.models.dataModels as models
 
 from app.auth import methods
 
-import app.errorHandling.errorHandler as httperr
+from app.errorHandling.errorHandler import ErrorHandler, HttpErrorHandler
 
 from fastapi import APIRouter
 from fastapi import Request, Response, status, HTTPException
@@ -11,6 +11,10 @@ import os
 
 
 admin_router = APIRouter()
+
+err_handler = ErrorHandler("adminRouter")
+
+http_handler = HttpErrorHandler(err_handler)
 
 
 @admin_router.post("/admin/login")
@@ -30,6 +34,6 @@ async def admin_panel(user: models.User, response: Response, request: Request):
         return status.HTTP_202_ACCEPTED
 
     else:
-        err = HTTPException(status_code=401, detail="Invalid username or password")
-        handled_err = httperr.handle_http_exception(exc=err)
+        # err = HTTPException(status_code=401, detail="Invalid username or password")
+        handled_err = http_handler.handle_http_err(status=401, msg="Invalid username or password")
         return handled_err
