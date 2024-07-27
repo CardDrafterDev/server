@@ -163,3 +163,4 @@ app/testing.py
 *.pem
 test.py
 app/routers/testRouter.py
+db-password.txt
